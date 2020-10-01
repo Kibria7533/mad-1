@@ -13,7 +13,7 @@ const { DB, PORT } = require("./config");
 // Initialize the application
 const app = express();
 const cors = require("cors");
-app.use(express.static(path.join(__dirname, 'public')))
+// app.use(express.static(path.join(__dirname, 'public')))
 // Middlewares
 app.use(cors());
 app.use(passport.initialize());
@@ -56,9 +56,9 @@ const startApp = async () => {
 
     if(process.env.NODE_ENV==='production'){
       app.use(express.static('client/build'));
-      app.get('*',(req,res)=>{
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-      })
+      // app.get('*',(req,res)=>{
+      //   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+      // })
     }
     // Start Listenting for the server on PORT
     
